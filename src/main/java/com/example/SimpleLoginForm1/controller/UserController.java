@@ -26,13 +26,16 @@ public class UserController {
 	
 	@PostMapping("/login")
 	public String login(@ModelAttribute("user") User user) {
-		User oauthUser = userService.login(user.getUsername(), user.getPassword());
-		System.out.print(oauthUser);
-		if (Objects.nonNull(oauthUser)) {
-			return "redirect:/";
-		}
-		else {
-			return "redirect:/login";
-		}
+	    User oauthUser = userService.login(user.getUsername(), user.getPassword());
+	    System.out.println("Login attempt with username: " + user.getUsername());
+	    System.out.println("Authenticated user: " + oauthUser);
+
+	    if (Objects.nonNull(oauthUser)) {
+	        System.out.println("Login successful. Redirecting to welcome page.");
+	        return "redirect:/";  // Ensure you have a "/welcome" mapping in your controller
+	    } else {
+	        System.out.println("Login failed. Redirecting to login page.");
+	        return "redirect:/login";
+	    }
 	}
 }

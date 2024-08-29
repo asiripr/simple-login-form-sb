@@ -7,5 +7,5 @@ import com.example.SimpleLoginForm1.domain.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
-	User findByUsernameAndPassword(String username, String password);
+	User findByUsername(String username);
 }

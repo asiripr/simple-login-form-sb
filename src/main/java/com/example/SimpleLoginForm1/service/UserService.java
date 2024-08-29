@@ -12,7 +12,7 @@ public class UserService {
 	private UserRepository repo;
 	
 	public User login(String username, String password) {
-        // Fetch the user by username
+        // Fetch the user by user name
         User user = repo.findByUsername(username);
         if (user != null && user.getPassword().equals(password)) {
             return user;  // Successfully authenticated

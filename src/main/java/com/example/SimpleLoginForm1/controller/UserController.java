@@ -32,7 +32,7 @@ public class UserController {
 
 	    if (Objects.nonNull(oauthUser)) {
 	        System.out.println("Login successful. Redirecting to welcome page.");
-	        return "redirect:/";  // Ensure you have a "/welcome" mapping in your controller
+	        return "redirect:/";  
 	    } else {
 	        System.out.println("Login failed. Redirecting to login page.");
 	        return "redirect:/login";
